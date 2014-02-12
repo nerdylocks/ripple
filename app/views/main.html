@@ -14,6 +14,21 @@
   <h3 class="text-muted">Ripple Labs Technical Exercise</h3> 
 </div>
 <span ng-show="loading" class="label label-info">Werking...</span>
+<div class="jumbotron">
+  <nvd3-pie-chart
+      data="chartData"
+      id="rippleData"
+      showLabels="true"
+      x="xFunction()"
+      y="yFunction()"
+      width="500"
+      height="330"
+      donut="true"
+      donutRatio="1"
+      donutLabelsOutside="true">
+  <svg height="350"></svg>
+</nvd3-pie-chart>
+</div>
 <div class="row marketing">
   <table class="table">
     <thead>

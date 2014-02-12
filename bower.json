@@ -11,7 +11,9 @@
     "angular-cookies": "~1.2.0",
     "angular-sanitize": "~1.2.0",
     "angular-route": "~1.2.0",
-    "angular-websocket": "~0.0.5"
+    "angular-websocket": "~0.0.5",
+    "nvd3": "~1.1.15-beta",
+    "angularjs-nvd3-directives": "~0.0.5-beta"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

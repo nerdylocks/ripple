@@ -4,7 +4,8 @@ var rippleApp = angular.module('rippleTestApp', [
 	'ngCookies',
 	'ngResource',
 	'ngSanitize',
-	'ngRoute'
+	'ngRoute',
+	'nvd3ChartDirectives'
 ]);
 
 rippleApp.config(function ($routeProvider) {
