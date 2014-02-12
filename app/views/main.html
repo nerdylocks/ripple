@@ -1,27 +1,42 @@
 <div class="header">
   <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
+    <li class="active">
+    <button ng-show="connected" class="btn btn-success">
+      Rippled!
+    </button>
+    <button ng-hide="connected" class="btn btn-info" ng-click="connect()">
+        <span ng-hide="connecting">Get Rippled!</span>
+        <span ng-show="connecting">Connecting...</span>
+      </button>
+    </li>
+    
   </ul>
-  <h3 class="text-muted">rippleTest</h3>
+  <h3 class="text-muted">Ripple Labs Technical Exercise</h3> 
 </div>
-
+<span ng-show="loading" class="label label-info">Werking...</span>
 <div class="row marketing">
   <table class="table">
-    <tr ng-repeat="stuff in socketResp">
-      <td>{{stuff.fee_base}}</td>
-      <td>{{stuff.fee_ref}}</td>
-      <td>{{stuff.ledger_hash}}</td>
-      <td>{{stuff.ledger_index}}</td>
-      <td>{{stuff.ledger_time}}</td>
-      <td>{{stuff.reserve_base}}</td>
-      <td>{{stuff.reserve_inc}}</td>
-      <td>{{stuff.txn_count}}</td>
-      <td>{{stuff.type}}</td>
-      <td>{{stuff.validated_ledgers}}</td>
-    </tr>
+    <thead>
+      <tr>
+        <th>BTC</th>
+        <th>CNY</th>
+        <th>USD</th>
+        <th>AUD</th>
+        <th>XRP</th>
+        <th>CAD</th>
+        <th>EUR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{currencyTypes.BTC.amount}}</td>
+        <td>{{currencyTypes.CNY.amount}}</td>
+        <td>{{currencyTypes.USD.amount}}</td>
+        <td>{{currencyTypes.AUD.amount}}</td>
+        <td>{{currencyTypes.XRP.amount}}</td>
+        <td>{{currencyTypes.CAD.amount}}</td>
+        <td>{{currencyTypes.EUR.amount}}</td>
+      </tr>
+    </tbody>
   </table>
-<div class="footer">
-  <p>♥ from the Yeoman team</p>
 </div>
