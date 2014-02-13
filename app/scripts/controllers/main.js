@@ -33,8 +33,7 @@ rippleApp.controller('MainCtrl', function ($scope, $rootScope, RippleRemote) {
 		    	{ key: "AUD", y: $rootScope.currencyTypes.AUD.amount+1 },
 		    	{ key: "XRP", y: $rootScope.currencyTypes.XRP.amount+1 },
 		    	{ key: "CAD", y: $rootScope.currencyTypes.CAD.amount+1 },
-		    	{ key: "EUR", y: $rootScope.currencyTypes.EUR.amount+1 },
-		    	{ key: "other", y: $rootScope.currencyTypes.other.amount+1 }
+		    	{ key: "EUR", y: $rootScope.currencyTypes.EUR.amount+1 }
 			];
 
 			
