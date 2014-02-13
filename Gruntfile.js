@@ -281,7 +281,21 @@ module.exports = function (grunt) {
             'images/{,*/}*.{webp}',
             'fonts/*'
           ]
-        }, {
+        }, 
+        {
+            expand: true,
+            dest: '<%= yeoman.dist %>',
+            cwd: 'heroku',
+            src: '*',
+            rename: function (dest, src) {
+                var path = require('path');
+                if (src === 'distpackage.json') {
+                    return path.join(dest, 'package.json');
+                }
+                return path.join(dest, src);
+            }
+        },
+        {
           expand: true,
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
