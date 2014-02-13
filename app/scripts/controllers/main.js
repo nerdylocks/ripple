@@ -35,10 +35,12 @@ rippleApp.controller('MainCtrl', function ($scope, $rootScope, RippleRemote) {
 		    	{ key: "CAD", y: $rootScope.currencyTypes.CAD.amount+1 },
 		    	{ key: "EUR", y: $rootScope.currencyTypes.EUR.amount+1 },
 		    	{ key: "other", y: $rootScope.currencyTypes.other.amount+1 }
-			];	
+			];
+
+			
 		});
 	}
-
+	
 	
 	$scope.xFunction = function(){
         return function(d) {
