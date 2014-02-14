@@ -17,12 +17,12 @@ rippleApp.controller('MainCtrl', function ($scope, $rootScope, RippleRemote) {
 				if(data.transaction.hasOwnProperty("TakerPays")) {
 					if(data.transaction.TakerPays.hasOwnProperty("currency")){
 						var _counter = $rootScope.currencyTypes[data.transaction.TakerPays.currency] || $rootScope.currencyTypes['other'];
-						$rootScope.currencyTypes[_counter.currency].amount = $rootScope.currencyTypes[_counter.currency].amount+1;
+						$rootScope.currencyTypes[_counter.currency].amount++;
 					}
 				} else if(data.transaction.hasOwnProperty("TakerGets")) {
 					if(data.transaction.TakerPays.hasOwnProperty("currency")){
 						var _counter = $rootScope.currencyTypes[data.transaction.TakerGets.currency] || $rootScope.currencyTypes['other'];
-						$rootScope.currencyTypes[_counter.currency].amount = $rootScope.currencyTypes[_counter.currency].amount+1;
+						$rootScope.currencyTypes[_counter.currency].amount++;
 					}
 				}	
 			}
