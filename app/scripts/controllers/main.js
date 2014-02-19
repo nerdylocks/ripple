@@ -9,20 +9,31 @@ rippleApp.controller('MainCtrl', function ($scope, $rootScope, RippleRemote) {
 		RippleRemote.on('transaction_all', handleData);
 	};
 	
+	var Utilities = { 
+		countIndicator : function(currency) {
+			var badge = $('.list-group a.' + currency + '.list-group-item');
+			badge.addClass('hit');
+			setTimeout(function(){
+				badge.removeClass('hit');
+			}, 140);
+		}
+	};
+
 	function handleData(data){
 		$rootScope.$apply(function(){
 			$rootScope.$emit('CONNECTED');
-			console.log(data);
 			if(data.engine_result_code == 0){
 				if(data.transaction.hasOwnProperty("TakerPays")) {
 					if(data.transaction.TakerPays.hasOwnProperty("currency")){
 						var _counter = $rootScope.currencyTypes[data.transaction.TakerPays.currency] || $rootScope.currencyTypes['other'];
 						$rootScope.currencyTypes[_counter.currency].amount++;
+						Utilities.countIndicator(_counter.currency);
 					}
 				} else if(data.transaction.hasOwnProperty("TakerGets")) {
 					if(data.transaction.TakerPays.hasOwnProperty("currency")){
 						var _counter = $rootScope.currencyTypes[data.transaction.TakerGets.currency] || $rootScope.currencyTypes['other'];
 						$rootScope.currencyTypes[_counter.currency].amount++;
+						Utilities.countIndicator(_counter.currency);
 					}
 				}	
 			}
@@ -51,6 +62,7 @@ rippleApp.controller('MainCtrl', function ($scope, $rootScope, RippleRemote) {
             return d.y;
         };
     }
+	
 	
 
 });

@@ -23,8 +23,9 @@
       </button>
 </div>
 <div class="container chart-container" ng-show="connected">
-  <div class="row marketing">
-    
+  <div class="row marketing row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-9">
+  
       <nvd3-pie-chart
           data="chartData"
           id="rippleData"
@@ -40,32 +41,18 @@
     
   </nvd3-pie-chart>
   </div>
+  <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
+  
+    <div class="list-group">
+    
+    <a href="#" class="BTC list-group-item">BTC <span class="badge">{{currencyTypes.BTC.amount}}</span></a>
+    <a href="#" class="CNY list-group-item">CNY <span class="badge">{{currencyTypes.CNY.amount}}</span></a>
+    <a href="#" class="USD list-group-item">USD <span class="badge">{{currencyTypes.USD.amount}}</span></a>
+    <a href="#" class="AUD list-group-item">AUD <span class="badge">{{currencyTypes.AUD.amount}}</span></a>
+    <a href="#" class="XRP list-group-item">XRP <span class="badge">{{currencyTypes.XRP.amount}}</span></a>
+    <a href="#" class="CAD list-group-item">CAD <span class="badge">{{currencyTypes.CAD.amount}}</span></a>
+    <a href="#" class="EUR list-group-item">EUR <span class="badge">{{currencyTypes.EUR.amount}}</span></a>
+    <button class="snap btn btn-primary btn-lg" ng-click="countIndicator()">Snap</button>
+  </div>
 </div>
-<div class="container">
-<div class="row">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>BTC</th>
-        <th>CNY</th>
-        <th>USD</th>
-        <th>AUD</th>
-        <th>XRP</th>
-        <th>CAD</th>
-        <th>EUR</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="badge">{{currencyTypes.BTC.amount}}</span></td>
-        <td><span class="badge">{{currencyTypes.CNY.amount}}</span></td>
-        <td><span class="badge">{{currencyTypes.USD.amount}}</span></td>
-        <td><span class="badge">{{currencyTypes.AUD.amount}}</span></td>
-        <td><span class="badge">{{currencyTypes.XRP.amount}}</span></td>
-        <td><span class="badge">{{currencyTypes.CAD.amount}}</span></td>
-        <td><span class="badge">{{currencyTypes.EUR.amount}}</span></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
+
