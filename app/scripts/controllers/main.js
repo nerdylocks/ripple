@@ -1,14 +1,22 @@
 'use strict';
 
-rippleApp.controller('MainCtrl', function ($scope, $rootScope, RippleRemote) {
+rippleApp.controller('MainCtrl', function ($scope, $rootScope, RippleRemote, RippleFire) {
 	
 	RippleRemote.init();		
+	RippleFire.init('https://nerdylocks.firebaseio.com/ripple/snapshots');
 
 	$scope.connect = function(){
 		$rootScope.$emit('CONNECTING');
 		RippleRemote.on('transaction_all', handleData);
+		$scope.rippledTime = new Date(); //Time stamp
+	};
+
+	$scope.disconnect = function(){
+		RippleRemote.remote.disconnect();
+		$rootScope.$emit('DISCONNECTED');
 	};
 	
+	//Utilities, i.e UI feedback
 	var Utilities = { 
 		countIndicator : function(currency) {
 			var badge = $('.list-group a.' + currency + '.list-group-item');
@@ -47,11 +55,10 @@ rippleApp.controller('MainCtrl', function ($scope, $rootScope, RippleRemote) {
 		    	{ key: "EUR", y: $rootScope.currencyTypes.EUR.amount+1 }
 			];
 
-			
 		});
 	}
 	
-	
+	//Chart functions
 	$scope.xFunction = function(){
         return function(d) {
             return d.key;
@@ -63,6 +70,23 @@ rippleApp.controller('MainCtrl', function ($scope, $rootScope, RippleRemote) {
         };
     }
 	
-	
+	//Archive
+	$scope.snap = function(){
 
+		//Construct archive data model for firebase
+		$rootScope.archiveData = {
+			data: $rootScope.currencyTypes,
+			startTime: $scope.rippledTime,
+			endTime: new Date()
+		}
+
+		//Persist data to firebase
+		$rootScope.snapshots.$add($rootScope.archiveData); 
+
+		//Visual feedback on snap
+		angular.forEach($rootScope.chartData, function(key, value){
+			Utilities.countIndicator(key.key); 
+		});
+	}
 });
+

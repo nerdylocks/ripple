@@ -1,18 +1,3 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li>
-      <a href="https://github.com/nerdylocks/ripple" target="_blank">Git</a>
-    </li>
-    <li class="active">
-    <button ng-show="connected" class="btn btn-success">
-      Rippled!
-    </button>
-    </li>
-
-  </ul>
-  <h3 class="text-muted">Ripple Labs Technical Exercise</h3> 
-</div>
-
 <div class="jumbotron" ng-hide="connected">
       <h1 ng-hide="connected">
         See currency transaction usage in real time.
@@ -52,7 +37,7 @@
     <a href="#" class="XRP list-group-item">XRP <span class="badge">{{currencyTypes.XRP.amount}}</span></a>
     <a href="#" class="CAD list-group-item">CAD <span class="badge">{{currencyTypes.CAD.amount}}</span></a>
     <a href="#" class="EUR list-group-item">EUR <span class="badge">{{currencyTypes.EUR.amount}}</span></a>
-    <button class="snap btn btn-primary btn-lg" ng-click="countIndicator()">Snap</button>
+    <button class="snap btn btn-primary btn-lg" ng-click="snap()">Snap</button>
   </div>
 </div>
 

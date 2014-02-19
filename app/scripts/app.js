@@ -5,13 +5,18 @@ var rippleApp = angular.module('rippleTestApp', [
 	'ngResource',
 	'ngSanitize',
 	'ngRoute',
-	'nvd3ChartDirectives'
+	'nvd3ChartDirectives',
+	'firebase'
 ]);
 
 rippleApp.config(function ($routeProvider) {
 	$routeProvider
 	.when('/', {
 		templateUrl: 'views/main.html',
+		controller: 'MainCtrl'
+	})
+	.when('/archives', {
+		templateUrl: 'views/archives.html',
 		controller: 'MainCtrl'
 	})
 	.otherwise({

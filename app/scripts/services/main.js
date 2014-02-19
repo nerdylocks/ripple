@@ -76,3 +76,12 @@ rippleApp.factory('RippleRemote', function($rootScope){
 		}
 	}
 });
+rippleApp.factory('RippleFire', function($rootScope, $firebase){
+	return {
+		init: function(firebaseUrl){
+			var _fbUrl = firebaseUrl;
+			var _fireRef = new Firebase(_fbUrl);
+			$rootScope.snapshots = $firebase(_fireRef);
+		}
+	}
+});

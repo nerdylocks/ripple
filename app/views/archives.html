@@ -1,0 +1,19 @@
+<div class="chart-container">
+  <div class="row marketing">
+  <div>
+
+    <div class="col-sm-4" ng-repeat="d in snapshots">
+      <div class="list-group">
+        <a href="#" class="list-group-item active">{{d.startTime | date:'MM/dd/yy h:mma'}} - {{d.endTime | date:'MM/dd/yy h:mma'}}</a>
+        <a href="#" class="BTC list-group-item">{{d.data.BTC.currency}}<span class="badge">{{d.data.BTC.amount}}</span></a>
+        <a href="#" class="CNY list-group-item">{{d.data.CNY.currency}}<span class="badge">{{d.data.CNY.amount}}</span></a>
+        <a href="#" class="USD list-group-item">{{d.data.USD.currency}}<span class="badge">{{d.data.USD.amount}}</span></a>
+        <a href="#" class="AUD list-group-item">{{d.data.AUD.currency}}<span class="badge">{{d.data.AUD.amount}}</span></a>
+        <a href="#" class="XRP list-group-item">{{d.data.XRP.currency}}<span class="badge">{{d.data.XRP.amount}}</span></a>
+        <a href="#" class="CAD list-group-item">{{d.data.CAD.currency}}<span class="badge">{{d.data.CAD.amount}}</span></a>
+        <a href="#" class="EUR list-group-item">{{d.data.EUR.currency}}<span class="badge">{{d.data.EUR.amount}}</span></a>
+    </div>
+  </div>
+  </div>
+</div>
+
