@@ -1,47 +1,48 @@
 <div class="header">
   <ul class="nav nav-pills pull-right">
+    <li>
+      <a href="https://github.com/nerdylocks/ripple" target="_blank">Git</a>
+    </li>
     <li class="active">
     <button ng-show="connected" class="btn btn-success">
       Rippled!
     </button>
-    <button ng-hide="connected" class="btn btn-info" ng-click="connect()">
-        <span ng-hide="connecting">Get Rippled!</span>
-        <span ng-show="connecting">Connecting...</span>
-      </button>
     </li>
-    
+
   </ul>
   <h3 class="text-muted">Ripple Labs Technical Exercise</h3> 
 </div>
-<span ng-show="loading" class="label label-info">Werking...</span>
-<div class="jumbotron">
-  <nvd3-pie-chart data="chartData" id="rippleData" showlabels="true" x="xFunction()" y="yFunction()" width="500" height="330" donut="true" donutratio="1" donutlabelsoutside="true">
-  <svg height="350"></svg>
-</nvd3-pie-chart>
+
+<div class="jumbotron" ng-hide="connected">
+      <h1 ng-hide="connected">
+        See currency transaction usage in real time.
+      </h1>
+      <button ng-hide="connected" class="btn btn-info" ng-click="connect()">
+        <span ng-hide="connecting">Get Rippled!</span>
+        <span ng-show="connecting">Connecting...</span>
+      </button>
 </div>
-<div class="row marketing">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>BTC</th>
-        <th>CNY</th>
-        <th>USD</th>
-        <th>AUD</th>
-        <th>XRP</th>
-        <th>CAD</th>
-        <th>EUR</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{currencyTypes.BTC.amount}}</td>
-        <td>{{currencyTypes.CNY.amount}}</td>
-        <td>{{currencyTypes.USD.amount}}</td>
-        <td>{{currencyTypes.AUD.amount}}</td>
-        <td>{{currencyTypes.XRP.amount}}</td>
-        <td>{{currencyTypes.CAD.amount}}</td>
-        <td>{{currencyTypes.EUR.amount}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<div class="container chart-container" ng-show="connected">
+  <div class="row marketing row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-9">
+  
+      <nvd3-pie-chart data="chartData" id="rippleData" showlabels="true" x="xFunction()" y="yFunction()" donut="true" pielabelsoutside="true" donutratio="1.2" height="400">
+
+      <svg></svg>
+    
+  </nvd3-pie-chart>
+  </div>
+  <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
+  
+    <div class="list-group">
+    
+    <a href="#" class="BTC list-group-item">BTC <span class="badge">{{currencyTypes.BTC.amount}}</span></a>
+    <a href="#" class="CNY list-group-item">CNY <span class="badge">{{currencyTypes.CNY.amount}}</span></a>
+    <a href="#" class="USD list-group-item">USD <span class="badge">{{currencyTypes.USD.amount}}</span></a>
+    <a href="#" class="AUD list-group-item">AUD <span class="badge">{{currencyTypes.AUD.amount}}</span></a>
+    <a href="#" class="XRP list-group-item">XRP <span class="badge">{{currencyTypes.XRP.amount}}</span></a>
+    <a href="#" class="CAD list-group-item">CAD <span class="badge">{{currencyTypes.CAD.amount}}</span></a>
+    <a href="#" class="EUR list-group-item">EUR <span class="badge">{{currencyTypes.EUR.amount}}</span></a>
+    <button class="snap btn btn-primary btn-lg" ng-click="countIndicator()">Snap</button>
+  </div>
+</div></div></div>
