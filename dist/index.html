@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/cb9b6f97.main.css"/>
+        <link rel="stylesheet" href="styles/4adbcbe8.main.css"/>
 </head>
   <body ng-app="rippleTestApp">
     <!--[if lt IE 7]>
@@ -24,21 +24,40 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li>
+                    <a href="#/archives" ng-click="disconnect()">Archives</a>
+                </li>
+                <li>
+                    <a href="https://github.com/nerdylocks/ripple" target="_blank">Git</a>
+                </li>
+                <li class="active">
+                    <button ng-show="connected" class="btn btn-success">Rippled!</button>
+                </li>
+
+            </ul>
+            <a class="ripple-logo" href="#/"><img src="https://www.ripplelabs.com/wp-content/uploads/2014/01/ripplelabs_logo.png" height="50px"></a>
+        </div>
+    </div>  
     <div class="container" ng-view=""></div>
 
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angularfire/angularfire.js"></script>
     
     <script src="bower_components/d3/d3.min.js"></script> 
     <script src="bower_components/nvd3/nv.d3.js"></script>
     <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
     
-    <script src="http://abiyripple.herokuapp.com/bower_components/ripple-lib/build/ripple-0.7.19-min.js"></script>
+    <script src="scripts/libs/ripple-lib/build/ripple-0.7.19-min.js"></script>
         <script src="scripts/a91d5f71.plugins.js"></script>
 
         <script src="scripts/d331fc52.modules.js"></script>
 
-        <script src="scripts/447cad44.scripts.js"></script>
+        <script src="scripts/5f710688.scripts.js"></script>
 </body>
 </html>
