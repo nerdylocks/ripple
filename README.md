@@ -8,6 +8,12 @@ For this thencical exercise I utilized AngularJS and the ripple-lib library to c
       $ git clone https://github.com/nerdylocks/ripple abiy-ripple
       $ cd abiy-ripple
       $ bower install
+      
+      $ cd app/bower_components/ripple-lib/
+      $ npm install
+      $ grunt
+      
+      $ cd ../../..
       $ grunt server
       
 ## Thanks!      
